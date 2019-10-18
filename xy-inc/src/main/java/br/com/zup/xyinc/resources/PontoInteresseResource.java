@@ -33,6 +33,7 @@ public class PontoInteresseResource {
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<PontoInteresse> insert(@Valid @RequestBody PontoInteresseDTO pontoDTO){
 		PontoInteresse ponto = pontoService.save(pontoService.fromDTO(pontoDTO));
+		ponto.setId(null);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(ponto.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
