@@ -57,12 +57,27 @@ public class PontoInteresseService {
 		oldObj.setY(newObj.getY());
 	}
 
+	/**
+	 * Encontra os pontos de Interesse proximos ao local do usuario, que possuam uma distancia maxima inferior a informada.
+	 * @param localUsuario
+	 * @return
+	 */
 	public List<PontoInteresse> findClosePoints(LocalUsuarioDTO localUsuario) {
 		List<PontoInteresse> todosPontos = repository.findAll();
-		return todosPontos.stream().filter(ponto -> filtaPontos(ponto, localUsuario)).collect(Collectors.toList());
+		return todosPontos.stream().filter(ponto -> validaDistancia(ponto, localUsuario)).collect(Collectors.toList());
 	}
 	
-	private boolean filtaPontos(PontoInteresse ponto, LocalUsuarioDTO localUsuario) {
+	/**
+	 * Realiza o calculo entre o a distancia do usuario e o ponto de interesse analizado
+	 * e verifica se a distancia entre os dois eh menor do que o limite informado pelo usuario
+	 * 
+	 * Formula utilizada: sqrt((x1-x2)^2 + (y1 - y2)^2)
+	 * 
+	 * @param ponto
+	 * @param localUsuario
+	 * @return
+	 */
+	private boolean validaDistancia(PontoInteresse ponto, LocalUsuarioDTO localUsuario) {
 		Double xQuadrado = Math.pow((ponto.getX() - localUsuario.getX()), 2);
 		Double yQuadrado = Math.pow((ponto.getY() - localUsuario.getY()), 2);
 		Double somaQuadrados = xQuadrado + yQuadrado;

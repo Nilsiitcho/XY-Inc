@@ -20,6 +20,10 @@ public class XyIncApplication implements CommandLineRunner {
 		SpringApplication.run(XyIncApplication.class, args);
 	}
 	
+	
+	/**
+	 * Para fins de teste, a aplicacao instancia alguns registros em sua basee de dados ao startar
+	 */
 	@Override
 	public void run(String... args) throws Exception{
 		
