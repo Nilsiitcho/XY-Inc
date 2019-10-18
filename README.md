@@ -64,7 +64,7 @@ http://localhost:8080/ponto-interesse/2
 }
 ````
 
-### Listando todos os POIS
+### Listando todos os POIs
 Para acessar o serviço que trás todos os Pontos de Interesse, basta acessar a URL ```/todos-pontos``` utilizando o método ***GET***. Será retornado um array com todos os registros.
 
 ### Consultado os POIS dentro de um raio específico
