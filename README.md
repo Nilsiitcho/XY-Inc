@@ -1,5 +1,5 @@
 # XY-Inc
-Aplicação para desafio de desenvolvedor Back-End ZUP
+Aplicação para desafio BackEnd
 
 Se trata de uma plataforma de gerenciamento de Pontos de Interesse (POI).
 
